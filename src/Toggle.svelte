@@ -7,7 +7,7 @@
   /**
    * Specify the label text
    */
-  export let label = "Label";
+  export let label = "";
 
   /**
    * Set to `true` to visually hide the label
@@ -39,17 +39,22 @@
   /**
    * Specify the switch color
    */
-  export let switchColor = "#fff";
+  export let switchColor = "var(--theme-color-black, #fff)";
 
   /**
    * Specify the toggled switch background color
    */
-  export let toggledColor = "#0f62fe";
+  export let toggledColor = "var(--theme-color-primary, #0f62fe)";
 
   /**
    * Specify the untoggled switch background color
    */
-  export let untoggledColor = "#8d8d8d";
+  export let untoggledColor = "var(--theme-color-graymed, #8d8d8d)";
+
+  /**
+   * Specify size of toggle in pixels
+   */
+  export let size = 20;
 
   import { createEventDispatcher } from "svelte";
   import ToggleCore from "./ToggleCore.svelte";
@@ -67,7 +72,7 @@
       class:small
       {...$$restProps}
       {...button}
-      style="color: {switchColor}; background-color: {toggled
+      style="font-size:{size}px; color: {switchColor}; background-color: {toggled
         ? toggledColor
         : untoggledColor};
       {$$restProps.style}"
@@ -106,14 +111,15 @@
 
   button {
     position: relative;
-    padding: 0 0.25rem;
+    padding: 0 0.25em;
     border: 0;
-    border-radius: 1rem;
-    height: 1.25rem;
-    width: 2.5rem;
+    border-radius: 0.75em;
+    height: 1em;
+    width: 2em;
     font: inherit;
     color: inherit;
     line-height: inherit;
+		transition: color 1s var(--ease-out-quick);
   }
 
   button:not([disabled]) {
@@ -130,14 +136,14 @@
     content: "";
     top: 0;
     bottom: 0;
-    left: 0.125rem;
+    left: 0.2em;
     margin: auto;
-    height: 1rem;
-    width: 1rem;
+    height: 0.6em;
+    width: 0.6em;
     text-align: center;
     border-radius: 50%;
     background-color: currentColor;
-    transition: transform 150ms ease-out;
+    transition: transform 1s var(--ease-out-quick);
   }
 
   button[aria-checked="true"]:before {
