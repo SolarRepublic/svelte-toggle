@@ -1,5 +1,5 @@
 {
-  "name": "svelte-toggle",
+  "name": "@solar-republic/svelte-toggle",
   "version": "3.1.0",
   "license": "MIT",
   "description": "Accessible toggle switch component",
